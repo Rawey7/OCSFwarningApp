@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="il.cshaifasweng.OCSFMediatorExample.client.PrimaryController">
-   <children>
-      <Label text="Welcome" />
-      <Button mnemonicParsing="false" onAction="#sendWarning" text="Send me a warning!" />
-   </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
-</VBox>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="il.cshaifasweng.OCSFMediatorExample.client.PrimaryController">
+
+    <top>
+        <VBox spacing="8" alignment="CENTER" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="15" right="15" bottom="10" left="15"/>
+            </padding>
+            <Label text="Tic Tac Toe" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <Label fx:id="statusLabel" text="Connecting..." />
+        </VBox>
+    </top>
+
+    <center>
+        <GridPane fx:id="boardGrid" hgap="8" vgap="8" alignment="CENTER">
+            <Button fx:id="b00" text=" " prefWidth="90" prefHeight="90" onAction="#cellClicked"/>
+            <Button fx:id="b01" text=" " prefWidth="90" prefHeight="90" onAction="#cellClicked" GridPane.columnIndex="1"/>
+            <Button fx:id="b02" text=" " prefWidth="90" prefHeight="90" onAction="#cellClicked" GridPane.columnIndex="2"/>
+
+            <Button fx:id="b10" text=" " prefWidth="90" prefHeight="90" onAction="#cellClicked" GridPane.rowIndex="1"/>
+            <Button fx:id="b11" text=" " prefWidth="90" prefHeight="90" onAction="#cellClicked" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Button fx:id="b12" text=" " prefWidth="90" prefHeight="90" onAction="#cellClicked" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+
+            <Button fx:id="b20" text=" " prefWidth="90" prefHeight="90" onAction="#cellClicked" GridPane.rowIndex="2"/>
+            <Button fx:id="b21" text=" " prefWidth="90" prefHeight="90" onAction="#cellClicked" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Button fx:id="b22" text=" " prefWidth="90" prefHeight="90" onAction="#cellClicked" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+        </GridPane>
+    </center>
+</BorderPane>
